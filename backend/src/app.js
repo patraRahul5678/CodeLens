@@ -19,8 +19,8 @@ app.use(
 );
 app.use(cookieParser());
 
-app.use('/users', userRoutes);
-app.use('/ai', aiRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/ai', aiRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
