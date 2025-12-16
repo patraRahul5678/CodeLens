@@ -32,6 +32,11 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+console.log("Server file loaded");
+console.log("PORT:", process.env.PORT);
+console.log("NODE_ENV:", process.env.NODE_ENV);
+
+
 connectDB();
 
 app.listen(PORT, () => {
