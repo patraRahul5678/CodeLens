@@ -5,7 +5,6 @@ import './App.css';
 import { Navigate, Route, Routes } from 'react-router';
 import useAuthUser from './hooks/useAuthUser';
 import PageLoader from './components/PageLoader';
-// import { CodePage} from './pages/CodePage';
 import LoginPage from './pages/LoginPage';
 import { Toaster } from "react-hot-toast"
 import CodePage from './pages/CodePage';
