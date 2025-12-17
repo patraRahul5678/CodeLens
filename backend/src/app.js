@@ -4,6 +4,7 @@ import "dotenv/config";
 import cookieParser from "cookie-parser";
 import path from "path";
 import { fileURLToPath } from "url";
+import rateLimit, { ipKeyGenerator } from "express-rate-limit";
 
 import aiRoutes from "./routes/ai-routes.js";
 import userRoutes from "./routes/userRoutes.js";
@@ -28,8 +29,29 @@ app.use(
 );
 
 
+const aiRateLimiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  keyGenerator: (req) => {
+    if (req.user?.id) {
+      return `user-${req.user.id}`;
+    }
+
+    return ipKeyGenerator(req);
+  },
+  message: {
+    error: "Too many AI requests. Please slow down.",
+  },
+});
+
+
+
 app.use("/api/users", userRoutes);
-app.use("/api/ai", aiRoutes);
+
+
+app.use("/api/ai", aiRateLimiter, aiRoutes);
 
 
 if (process.env.NODE_ENV === "production") {
@@ -42,7 +64,9 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+
 connectDB();
+
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);

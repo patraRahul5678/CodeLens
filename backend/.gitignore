@@ -1,5 +1,5 @@
 PORT=5000
-GEMINI_API_KEY=AIzaSyCDiC-CYP0BnsRDXvwKm4N91r9i5cVZCHc
+GEMINI_API_KEY=AIzaSyAiqlSdiO7yt8WEcyLMPlE9AjGDFuMNEpE
 JWT_SECRET=bhbrhgfiuerhgfiueriugteiugfiuewughfiuewg
 MONGO_URI=mongodb+srv://kanhapatra801_db_user:W3EQcQu5SA3czu93@cluster0.0bdnixt.mongodb.net/
 NODE_ENV=production

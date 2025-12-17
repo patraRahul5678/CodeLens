@@ -76,13 +76,15 @@ const Navbar = () => {
       </div>
     </div>
 
-    {/* MOBILE MENU */}
+
     {isOpen && (
       <div className="md:hidden absolute top-full left-0 w-full bg-slate-900 border-t border-slate-700">
         <ul className="flex flex-col p-4 space-y-4">
-          <li className="text-slate-300 hover:text-white">Home</li>
-          <li className="text-slate-300 hover:text-white">About</li>
-          <li className="text-red-400 hover:text-red-300">Logout</li>
+          <Link to="/"  className="text-slate-300 hover:text-white">Home</Link>
+          <Link to="/about"  className="text-slate-300 hover:text-white">About</Link>
+          <Link to="/profile"  className="text-slate-300 hover:text-white">Profile</Link>
+          <button className="btn btn-ghost btn-circle text-red-700" onClick={logoutMutation}>
+          Logout</button>
         </ul>
       </div>
     )}
