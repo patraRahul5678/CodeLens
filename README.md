@@ -6,7 +6,7 @@ CodeLens is a full-stack **AI-powered code review platform** that helps develope
 
 ## 🚀 Live Demo
 
-👉 [Visit CodeLens Live](https://codelens-7.onrender.com/)
+👉 [Visit CodeLens Live](https://codelens-1-e0t1.onrender.com/)
 
 ## ✨ Features
 
